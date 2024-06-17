@@ -1,0 +1,633 @@
+body {
+    font-family: 'Noto Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+}
+
+/*header section -------style*/
+/* Existing styles */
+
+header {
+    display: flex;
+    align-items: center;
+    background-color: #ffffff;
+    color: #0e0000;
+    padding: 20px;
+    justify-content: space-between;
+
+}
+
+.search-container {
+    /* Style for the search bar container */
+    margin-left: auto;
+    /* Push the search bar to the right */
+    width: 60%;
+
+    padding: 4px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 20px;
+    text-align: right;
+}
+
+input[type="text"] {
+    /* Style for the search input field */
+    width: 90%;
+    padding: 6px;
+    border: none;
+    border-radius: 4px;
+
+}
+
+.search-container button {
+    /* Style for the search button */
+    padding: 6px 10px;
+    background-color: #4caf96;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Optional: Hover effect for the button */
+.search-container button:hover {
+    background-color: #45a049;
+    border: none;
+}
+
+header .logo span {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+header ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+header nav li {
+    margin-right: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #0e0000;
+    position: relative;
+    font-weight: bold;
+    transition: color 0.3s ease-in-out;
+
+}
+
+nav a:hover {
+    color: #00cac3;
+}
+
+
+nav a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background-color: #00cac3;
+    position: absolute;
+    bottom: -3px;
+    transition: width 0.3s ease-in-out;
+}
+
+nav a:hover::after {
+    width: 100%;
+
+}
+
+/*welome page -------style*/
+
+.welcome {
+    /* margin: 0 20px; */
+    /*  border: #333 2px solid; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0px;
+}
+
+.welcome h6 {
+    margin-bottom: 0;
+    font-size: 10px;
+
+}
+
+.welcome h1 {
+    margin-top: 0px;
+    font-size: 40px;
+    padding: 5px;
+    background: linear-gradient(150deg, #b7f2f6, #05b8ac);
+    /* Gradient background for the h1 */
+    background-clip: text;
+    /* Clip the background to the text */
+    -webkit-background-clip: text;
+    /* For webkit browsers (Chrome, Safari) */
+    color: transparent;
+    line-height: 1;
+}
+
+.WelComeText {
+    margin-top: 0px;
+    margin-left: 70px;
+    height: auto;
+    width: 300px;
+
+}
+
+.highlight {
+    background-color: yellow;
+}
+
+.WelComeText #w2 {
+    text-indent: 50px;
+}
+
+.WelComeText button {
+
+    padding: 5px 10px 5px 10px;
+    margin-bottom: 20px;
+    align-self: center;
+    border-radius: 20px;
+    background-color: #ffffff3b;
+    box-shadow: #c0e2f5 2px 2px 20px 1px;
+    border-color: #07efe3;
+    transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+
+
+
+}
+
+.WelComeText button:hover {
+
+    transform: scale(1.1);
+    background-color: #85fff9;
+    box-shadow: #39fff2 0px 0px 50px 3px;
+}
+
+/* about--- section*/
+
+.about {
+    display: flex;
+    justify-content: center;
+    margin-left: 50px;
+    display: flex;
+}
+
+.about #textAb h2 {
+    margin-top: 0px;
+    font-size: 40px;
+    padding: 5px;
+    background: linear-gradient(150deg, #70e9f2, #0a8179);
+    /* Gradient background for the h1 */
+    background-clip: text;
+    /* Clip the background to the text */
+    -webkit-background-clip: text;
+    /* For webkit browsers (Chrome, Safari) */
+    color: transparent;
+    line-height: 1;
+}
+
+.about p {
+    text-indent: 70px;
+    line-height: 1.2;
+}
+
+.about #textAb {
+    padding-left: 40px;
+    padding-right: 80px;
+    margin-right: 80px;
+    margin-left: 100px;
+    height: auto;
+    width: 400px;
+
+}
+
+.about button {
+
+    padding: 5px 10px 5px 10px;
+    margin: 8px;
+    margin-bottom: 20px;
+    align-self: center;
+    border-radius: 20px;
+    background-color: #ffffff3b;
+    box-shadow: #c0e2f5 2px 2px 20px 1px;
+    border-color: #07efe3;
+    transition: transform 0.3s ease-in-out;
+}
+
+.about button:hover {
+    background-color: #85fff9;
+    box-shadow: #39fff2 0px 0px 50px 3px;
+    color: rgb(0, 0, 0);
+    transform: scale(1.1);
+}
+
+
+/* q---section*/
+
+.QualificationsAndAchievements {
+    background-color: rgb(235, 255, 255);
+    /* hsl(180, 100%, 96%)*/
+    padding: 20px 0;
+}
+
+.QualificationsAndAchievements h1 {
+    font-size: 40px;
+    text-align: center;
+    background: linear-gradient(120deg, #c2fbff, #018d7d);
+    /* Gradient background for the h1 */
+    -webkit-background-clip: text;
+    /* Clip the background to the text */
+    background-clip: text;
+    /* For webkit browsers (Chrome, Safari) */
+    color: transparent;
+    line-height: 1;
+}
+
+.Qsec {
+    display: flex;
+    margin: 40px;
+    text-align: center;
+}
+
+.Qsec h2 {
+    text-align: center;
+}
+
+.Qsec .div1 {
+    width: 30%;
+    text-align: left;
+    margin: 0 20px;
+    padding: 2px 20px;
+    /* border: 2px solid hsl(180, 6%, 61%); */
+    /* border: 2px solid hsl(177, 94%, 48%); */
+    /* border-radius: 20px; */
+    border-radius: 4px;
+    background-color: rgb(250, 254, 255);
+    box-shadow: #eaf1f2 0px 0px 1px 6px;
+    transition: transform 0.4s ease-in-out;
+    position: relative;
+    overflow: hidden;
+    /* text-indent: 20px; */
+
+}
+
+.div1 ul {
+    line-height: 1.8;
+}
+
+.Qsec .div1:hover {
+    transform: scale(1.1);
+    box-shadow: #d4f3f8 0px 0px 10px 6px;
+}
+
+.EducationalBg h2 {
+    margin-bottom: 30px;
+}
+
+.skills div {
+    text-indent: 0px;
+    background-color: #ffffff;
+    padding: 5px;
+    margin: 10px;
+    /* border: 1px solid #b7b7b7; */
+    border-radius: 4px;
+
+}
+
+.skills li {
+    text-align: left;
+    list-style: none;
+    text-align: center;
+}
+
+.skills #al {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+
+progress {
+    width: 100%;
+    height: 6px;
+    border-radius: 0px;
+    appearance: none;
+}
+
+progress::-webkit-progress-bar {
+    background-color: #eee;
+    border-radius: 0px;
+}
+
+progress::-webkit-progress-value {
+    background-color: #00d5f6;
+    /* Change this color to your desired progress color */
+    border-radius: 0px;
+}
+
+/*welome page -------style*/
+
+.skillsS {
+    display: flex;
+    text-align: center;
+    /* background-color: rgb(224, 253, 255); */
+
+}
+
+.skillsS h2 {
+    font-size: 40px;
+    padding-bottom: 10px;
+    background: linear-gradient(120deg, #c2fbff, #018d7d);
+    /* Gradient background for the h1 */
+    -webkit-background-clip: text;
+    /* Clip the background to the text */
+    background-clip: text;
+    /* For webkit browsers (Chrome, Safari) */
+    color: transparent;
+    line-height: 1;
+}
+
+.projects ul {
+    display: flex;
+    /* list-style: none; */
+    list-style-position: outside;
+
+}
+
+.projects ul li {
+    margin-bottom: 10px;
+}
+
+.projectSec {
+    padding: 40px;
+    margin: 20px 20px;
+    /* border-radius: 20px; */
+    background-color: rgb(255, 255, 255);
+    box-shadow: #d9eef3 0px 0px 30px 0px;
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.projectSec li {
+    text-align: left;
+}
+
+.projectSec:hover {
+    /* transform: scale(1.1); */
+    /* background-color: rgb(226, 252, 254); */
+    box-shadow: #95e2f3 0px 0px 30px 1px;
+}
+
+
+.projectSec button {
+    padding: 5px 10px 5px 10px;
+    margin: 20px 0;
+    align-self: center;
+    border-radius: 20px;
+    background-color: #e1f5f83b;
+    /* box-shadow: #76d8df 2px 2px 20px 1px; */
+    border-color: #75baba;
+    transition: transform 0.3s ease-in-out;
+}
+
+.projectSec button:hover {
+    transform: scale(1.1);
+    background-color: #85fff9;
+    box-shadow: #39fff2 0px 0px 50px 3px;
+}
+
+/* certifiaction----section */
+.cert {
+    background-color: rgb(235, 255, 255);
+    /* #ddfafc */
+    padding: 10px 10px 10px 10px;
+
+}
+
+.cert h2 {
+    background: linear-gradient(120deg, #c2fbff, #018d7d);
+    /* Gradient background for the h1 */
+    -webkit-background-clip: text;
+    /* Clip the background to the text */
+    background-clip: text;
+    /* For webkit browsers (Chrome, Safari) */
+    color: transparent;
+    line-height: 1;
+    font-size: 40px;
+}
+
+.certUl {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.certUl .certDiv {
+    width: 30%;
+    padding-left: 0px 5px;
+    margin: 20px;
+    height: 200px;
+    padding: 20px 20px 2px 20px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: #d2e3e4 0px 0px 10px 0px;
+    border-radius: 20px;
+    transition: transform 0.3s ease-in-out;
+    /* background: linear-gradient(135deg, #ffffff, #7af0ff); */
+
+
+}
+
+
+.certUl .certDiv:hover {
+
+    transform: scale(1.1);
+    box-shadow: #9bdce0 4px 4px 20px 0px;
+    margin: 20px;
+    /* background: linear-gradient(150deg, #ffffff, #ffffff, #bbfaff, #87ecfb); */
+}
+
+.certDiv li {
+    /* margin: 10%; */
+    list-style: none;
+}
+
+.certDiv button {
+    padding: 5px 10px 5px 10px;
+    margin: 20px 0;
+    align-self: center;
+    border-radius: 20px;
+    background-color: #e1f5f83b;
+    /* box-shadow: #76d8df 2px 2px 20px 1px; */
+    border-color: #75baba;
+    transition: transform 0.3s, color 0.3s, transform 0.3s;
+}
+
+.certDiv button:hover {
+    background-color: #85fff9;
+    box-shadow: #39fff2 0px 0px 50px 3px;
+    color: rgb(0, 0, 0);
+    transform: scale(1.1);
+}
+
+.certification {
+    text-align: center;
+}
+
+/*  cv --- section */
+.resume {
+    /* border: #05ffe2 2px solid; */
+    /* border-radius: 30px; */
+    text-align: center;
+    padding: 20px 20px 20px 20px;
+    /* background: linear-gradient(160deg, #ffffff, #ffffff, #bbfaff, #87ecfb); */
+    border-top: #70dbe9 solid 2px;
+    border-bottom: #70e9e9 solid 2px;
+    transition: transform 0.6s ease-in-out, border-radius 0.9s ease-in-out;
+}
+
+.resume h2 {
+    background: linear-gradient(150deg, #70e9f2, #0a8179);
+    /* Gradient background for the h1 */
+    background-clip: text;
+    /* Clip the background to the text */
+    -webkit-background-clip: text;
+    /* For webkit browsers (Chrome, Safari) */
+    color: transparent;
+    line-height: 1;
+
+}
+
+.resume:hover {
+    box-shadow: #c3faf3 0px 0px 50px 5px;
+    /* background-color: #e8faf8; */
+    transform: scale(0.9);
+    border-radius: 30px;
+}
+
+.resume button {
+    padding: 5px 10px 5px 10px;
+    margin-bottom: 20px;
+    align-self: center;
+    border-radius: 20px;
+    background-color: #ffffff3b;
+    box-shadow: #c0e2f5 2px 2px 20px 1px;
+    border-color: #07efe3;
+    transition: transform 0.3s, color 0.3s, transform 0.3s;
+}
+
+.resume button:hover {
+    /* background-color: #00ddff; */
+    box-shadow: #14d9d9 0px 0px 50px 3px;
+    /* color: rgb(255, 255, 255); */
+    transform: scale(1.1);
+    border-color: #fbfbfb;
+}
+
+.download-icon {
+    display: inline-flex;
+    align-items: center;
+    font-size: 16px;
+}
+
+/* Optional: Adjust the color or other styles */
+.download-icon i {
+    margin-right: 5px;
+    /* Adjust the spacing */
+    color: #1f4977;
+    /* Adjust the color */
+}
+
+.resume p {
+    margin: 30px 30px 30px 30px;
+}
+
+
+/* contact me ---- section */
+.contact {
+    text-align: center;
+    background-color: rgb(235, 255, 255);
+    padding: 20px;
+}
+
+.contact h2 {
+
+    font-size: 40px;
+    padding-bottom: 10px;
+    background: linear-gradient(120deg, #c2fbff, #018d7d);
+    /* Gradient background for the h1 */
+    -webkit-background-clip: text;
+    /* Clip the background to the text */
+    background-clip: text;
+    /* For webkit browsers (Chrome, Safari) */
+    color: transparent;
+    line-height: 1;
+
+}
+
+.contact button {
+    padding: 5px 10px 5px 10px;
+    margin: 8px;
+    margin-bottom: 20px;
+    align-self: center;
+    border-radius: 20px;
+    background-color: #ffffff3b;
+    /* box-shadow: #c0e2f5 2px 2px 20px 1px; */
+    border-color: #07efe3;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out, transform 0.3s ease-in-out;
+
+
+}
+
+/* .contact button:hover {
+    background-color: #85fff9;
+    box-shadow: #39fff2 0px 0px 50px 3px;
+    color: rgb(0, 0, 0);
+    transform: scale(1.1);
+} */
+
+#in:hover {
+
+    background-color: #e8c2fd;
+    box-shadow: #fc4bff 0px 0px 40px 3px;
+    color: rgb(0, 0, 0);
+    transform: scale(1.1);
+    border-color: #9400ca;
+}
+
+#ln:hover {
+
+    background-color: #4841ff;
+    box-shadow: #136dea 0px 0px 40px 3px;
+    color: rgb(255, 255, 255);
+    transform: scale(1.1);
+    border-color: #fbfbfb;
+}
+
+#wp:hover {
+
+    background-color: #00b812;
+    box-shadow: #13ea5e 0px 0px 40px 3px;
+    color: rgb(255, 255, 255);
+    transform: scale(1.1);
+    border-color: #fbfbfb;
+}
+
+/* footer --- section */
+footer {
+    text-align: center;
+    color: #ddfafc;
+    padding: 30px;
+    background-color: #333;
+}
+
+footer a {
+    text-decoration: none;
+    color: #ffffff;
+}
