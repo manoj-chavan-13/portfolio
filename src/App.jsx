@@ -26,7 +26,7 @@ import {
   Coffee,
   Music,
   Award,
-  GitBranch, // Added for the new section
+  GitBranch,
 } from "lucide-react";
 
 // --- GLOBAL STYLES & FONTS ---
@@ -107,7 +107,7 @@ const GlobalStyles = () => (
 
 // --- VISUAL COMPONENTS ---
 
-// UPDATED: Balanced Glow (Increased from previous, but kept elegant)
+// Balanced Glow Background
 const AnimatedBackground = () => (
   <div className="fixed inset-0 -z-10 overflow-hidden bg-[#000000]">
     {/* Deep Royal Blue Orb */}
@@ -135,7 +135,6 @@ const ClayCard = ({
   glow = "blue",
   delay = "0ms",
 }) => {
-  // Slightly increased glow intensity for "Little more glow"
   const glowStyles = {
     blue: "group-hover:shadow-[0_0_40px_-5px_rgba(37,99,235,0.3)] hover:border-blue-500/30",
     violet:
@@ -143,7 +142,7 @@ const ClayCard = ({
     cyan: "group-hover:shadow-[0_0_40px_-5px_rgba(8,145,178,0.3)] hover:border-cyan-500/30",
     gold: "group-hover:shadow-[0_0_40px_-5px_rgba(234,179,8,0.3)] hover:border-yellow-500/30",
     white:
-      "group-hover:shadow-[0_0_40px_-5px_rgba(255,255,255,0.15)] hover:border-white/30", // Added white for Github card
+      "group-hover:shadow-[0_0_40px_-5px_rgba(255,255,255,0.15)] hover:border-white/30",
   };
 
   return (
@@ -768,73 +767,98 @@ const AboutPage = () => (
       <div className="space-y-6">
         {/* Profile Card - Custom Layout */}
         <ClayCard className="text-center p-8" glow="blue">
-          <div className="relative w-32 h-32 mx-auto mb-6">
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-500 to-violet-600 rounded-full blur-md opacity-50"></div>
-            <div className="relative w-full h-full rounded-full p-[2px] bg-gradient-to-br from-blue-500 to-violet-500">
-              <div className="w-full h-full bg-[#0a0a12] rounded-full flex items-center justify-center">
-                <span className="text-4xl font-bold text-white font-display">
+          <div className="relative w-32 h-32 mx-auto mb-6 group">
+            {/* Avatar Glow Ring */}
+            <div className="absolute inset-0 bg-gradient-to-tr from-blue-600 to-violet-600 rounded-full blur-lg opacity-75 group-hover:opacity-100 transition-opacity duration-500 animate-pulse-glow"></div>
+            <div className="relative w-full h-full rounded-full p-[3px] bg-gradient-to-tr from-blue-500 to-violet-500">
+              <div className="w-full h-full bg-[#0a0a12] rounded-full flex items-center justify-center overflow-hidden relative">
+                {/* Placeholder for real image, using stylistic initials for now */}
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-900/50 to-violet-900/50"></div>
+                <span className="text-5xl font-bold text-white font-display relative z-10">
                   MC
                 </span>
               </div>
             </div>
           </div>
 
-          <h2 className="text-3xl font-bold text-white font-display mb-1">
+          <h2 className="text-4xl font-bold text-white font-display mb-2 tracking-tight">
             Manoj Chavan
           </h2>
-          <p className="text-blue-400 font-medium text-sm mb-8">
-            Full Stack Engineer
+          <p className="text-blue-400 font-medium text-sm mb-8 tracking-wider uppercase">
+            Full Stack Developer
           </p>
 
           {/* Social Icons Row */}
-          <div className="flex justify-center gap-3 mb-10">
+          <div className="flex justify-center gap-4 mb-10">
             {[Github, Linkedin, Twitter, Mail].map((Icon, i) => (
               <button
                 key={i}
-                className="p-3 rounded-xl bg-[#1a1f2e] text-gray-400 hover:bg-blue-600 hover:text-white transition-all duration-300 border border-white/5 shadow-lg"
+                className="p-3 rounded-2xl bg-[#1a1f2e] text-gray-400 hover:bg-blue-600 hover:text-white hover:scale-110 transition-all duration-300 border border-white/5 shadow-lg group"
               >
-                <Icon size={18} />
+                <Icon size={20} className="group-hover:animate-bounce" />
               </button>
             ))}
           </div>
 
           {/* Details Grid */}
-          <div className="space-y-4 pt-6 border-t border-white/10 text-sm">
-            <div className="flex justify-between items-center">
-              <span className="text-gray-500 font-medium">Location</span>
+          <div className="space-y-4 pt-8 border-t border-white/5 text-sm">
+            <div className="flex justify-between items-center p-2 hover:bg-white/5 rounded-lg transition-colors">
+              <span className="text-gray-500 font-medium uppercase text-xs tracking-wider">
+                Location
+              </span>
               <span className="text-white font-semibold">Nashik, India</span>
             </div>
-            <div className="flex justify-between items-center">
-              <span className="text-gray-500 font-medium">Email</span>
+            <div className="flex justify-between items-center p-2 hover:bg-white/5 rounded-lg transition-colors">
+              <span className="text-gray-500 font-medium uppercase text-xs tracking-wider">
+                Email
+              </span>
               <span className="text-white font-semibold truncate max-w-[160px]">
                 manojschavan6@gmail.com
               </span>
             </div>
-            <div className="flex justify-between items-center">
-              <span className="text-gray-500 font-medium">Exp</span>
-              <span className="text-white font-semibold">3+ Years</span>
+            <div className="flex justify-between items-center p-2 hover:bg-white/5 rounded-lg transition-colors">
+              <span className="text-gray-500 font-medium uppercase text-xs tracking-wider">
+                Languages
+              </span>
+              <span className="text-white font-semibold">
+                English, Marathi, Hindi
+              </span>
             </div>
           </div>
         </ClayCard>
 
-        {/* Proficiency Card - Moved here as per image */}
-        <ClayCard title="Proficiency" glow="violet" className="p-6">
-          <div className="space-y-5 mt-2">
+        {/* Proficiency Card - "Energy Beam" Style */}
+        <ClayCard title="Proficiency" glow="violet" className="p-8">
+          <div className="space-y-6 mt-2">
             {[
-              { label: "Frontend (React/Tailwind)", val: 95 },
-              { label: "Mobile (Flutter)", val: 92 },
-              { label: "Backend (Node/DB)", val: 88 },
+              {
+                label: "Frontend (React/Tailwind)",
+                val: 95,
+                color: "from-blue-500 to-cyan-400",
+              },
+              {
+                label: "Mobile (Flutter)",
+                val: 92,
+                color: "from-violet-500 to-fuchsia-400",
+              },
+              {
+                label: "Backend (Node/DB)",
+                val: 88,
+                color: "from-green-500 to-emerald-400",
+              },
             ].map((s) => (
-              <div key={s.label}>
-                <div className="flex justify-between text-xs mb-2 text-gray-400 font-medium">
+              <div key={s.label} className="group">
+                <div className="flex justify-between text-xs mb-2 text-gray-400 font-bold uppercase tracking-wider">
                   <span>{s.label}</span>
-                  <span>{s.val}%</span>
+                  <span className="text-white">{s.val}%</span>
                 </div>
-                <div className="h-2 bg-gray-800 rounded-full overflow-hidden">
+                <div className="h-3 bg-[#0f111a] rounded-full overflow-hidden border border-white/5">
                   <div
-                    className="h-full bg-gradient-to-r from-blue-500 to-violet-500"
+                    className={`h-full bg-gradient-to-r ${s.color} relative`}
                     style={{ width: `${s.val}%` }}
-                  ></div>
+                  >
+                    <div className="absolute inset-0 bg-white/30 animate-[shimmer_2s_infinite] skew-x-12"></div>
+                  </div>
                 </div>
               </div>
             ))}
@@ -843,81 +867,143 @@ const AboutPage = () => (
       </div>
 
       {/* Right Column: Story, Hobbies, Stack */}
-      <div className="space-y-6">
+      <div className="space-y-8">
         {/* About Me - The Story */}
-        <ClayCard title="About Me" subtitle="THE STORY" glow="cyan">
-          <div className="prose prose-invert prose-lg text-gray-300 leading-relaxed text-sm md:text-base">
-            <p className="mb-4">
+        <div className="space-y-4">
+          <h3 className="text-3xl font-bold text-white font-display">
+            Beyond the <span className="text-violet-500">Code</span>
+          </h3>
+          <div className="prose prose-invert prose-lg text-gray-400 leading-relaxed text-lg">
+            <p>
               I am an adaptable software developer with a passion for building
               things that live on the internet. My journey started with a
               curiosity about how mobile apps worked, which led me to dive deep
-              into the world of <strong>Flutter</strong>.
+              into the world of <strong className="text-white">Flutter</strong>.
             </p>
             <p>
               Realizing the need for robust backends to support these apps, I
-              mastered the entire <strong>MERN stack</strong>. Today, I bridge
-              the gap between mobile and web, ensuring a consistent,
+              mastered the entire{" "}
+              <strong className="text-white">MERN stack</strong>. Today, I
+              bridge the gap between mobile and web, ensuring a consistent,
               high-quality user experience across all devices.
             </p>
           </div>
-        </ClayCard>
-
-        {/* Hobbies - Side by Side */}
-        <div className="grid grid-cols-2 gap-6">
-          <ClayCard
-            glow="gold"
-            icon={PenTool}
-            title="Sketching"
-            className="justify-center"
-          >
-            <p className="text-xs text-gray-400 mt-2 leading-relaxed">
-              Visualizing complex system architectures on paper before writing a
-              single line of code.
-            </p>
-          </ClayCard>
-          <ClayCard
-            glow="blue"
-            icon={Plane}
-            title="Traveling"
-            className="justify-center"
-          >
-            <p className="text-xs text-gray-400 mt-2 leading-relaxed">
-              Finding inspiration in new cultures and bringing fresh
-              perspectives to my design work.
-            </p>
-          </ClayCard>
         </div>
 
-        {/* Tech Stack - Arsenal */}
-        <ClayCard title="Tech Stack" subtitle="ARSENAL" glow="violet">
-          <div className="flex flex-wrap gap-2 mt-4">
-            {[
-              "Javascript",
-              "Dart",
-              "Python",
-              "Java",
-              "C++",
-              "React",
-              "Flutter",
-              "Next.js",
-              "Node.js",
-              "Express",
-              "MongoDB",
-              "PostgreSQL",
-              "Supabase",
-              "Firebase",
-              "Git",
-              "Docker",
-            ].map((t) => (
-              <span
-                key={t}
-                className="px-4 py-2 rounded-xl bg-[#0f111a] border border-white/10 text-xs font-mono text-gray-300 hover:border-violet-500 hover:bg-violet-500/10 transition-colors cursor-default shadow-sm"
-              >
-                {t}
-              </span>
-            ))}
+        {/* Hobbies & Interests - Enhanced Visuals */}
+        <div>
+          <h3 className="text-xl font-bold text-white mb-4 font-display">
+            Hobbies & Interests
+          </h3>
+          <div className="grid sm:grid-cols-2 gap-6">
+            <ClayCard glow="cyan" className="relative overflow-hidden group">
+              <div className="absolute right-[-20px] bottom-[-20px] opacity-10 group-hover:opacity-20 transition-opacity">
+                <PenTool size={100} />
+              </div>
+              <div className="relative z-10 flex items-center gap-4">
+                <div className="p-4 bg-cyan-500/10 rounded-2xl text-cyan-400 border border-cyan-500/20">
+                  <PenTool size={28} />
+                </div>
+                <div>
+                  <h4 className="text-lg font-bold text-white">Sketching</h4>
+                  <p className="text-xs text-gray-400 mt-1">
+                    Visualizing ideas on paper
+                  </p>
+                </div>
+              </div>
+            </ClayCard>
+
+            <ClayCard glow="gold" className="relative overflow-hidden group">
+              <div className="absolute right-[-20px] bottom-[-20px] opacity-10 group-hover:opacity-20 transition-opacity">
+                <Plane size={100} />
+              </div>
+              <div className="relative z-10 flex items-center gap-4">
+                <div className="p-4 bg-yellow-500/10 rounded-2xl text-yellow-400 border border-yellow-500/20">
+                  <Plane size={28} />
+                </div>
+                <div>
+                  <h4 className="text-lg font-bold text-white">Traveling</h4>
+                  <p className="text-xs text-gray-400 mt-1">
+                    Exploring new cultures
+                  </p>
+                </div>
+              </div>
+            </ClayCard>
           </div>
-        </ClayCard>
+        </div>
+
+        {/* Tech Stack - Grouped for better HCI (Chunking) */}
+        <div>
+          <h3 className="text-xl font-bold text-white mb-4 font-display">
+            Technical Arsenal
+          </h3>
+          <ClayCard glow="violet" className="p-8">
+            <div className="space-y-6">
+              <div>
+                <div className="text-xs font-bold text-gray-500 uppercase tracking-widest mb-3">
+                  Languages
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  {["Javascript", "Dart", "Python", "Java", "C++"].map((t) => (
+                    <span
+                      key={t}
+                      className="px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-sm text-gray-300 hover:text-white hover:border-violet-500 transition-colors cursor-default"
+                    >
+                      {t}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <div>
+                <div className="text-xs font-bold text-gray-500 uppercase tracking-widest mb-3">
+                  Frameworks & Libraries
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  {[
+                    "React",
+                    "Flutter",
+                    "Next.js",
+                    "Node.js",
+                    "Express",
+                    "Tailwind CSS",
+                  ].map((t) => (
+                    <span
+                      key={t}
+                      className="px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-sm text-gray-300 hover:text-white hover:border-blue-500 transition-colors cursor-default"
+                    >
+                      {t}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <div>
+                <div className="text-xs font-bold text-gray-500 uppercase tracking-widest mb-3">
+                  Tools & Platforms
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  {[
+                    "MongoDB",
+                    "PostgreSQL",
+                    "Supabase",
+                    "Firebase",
+                    "Git",
+                    "Docker",
+                    "Figma",
+                  ].map((t) => (
+                    <span
+                      key={t}
+                      className="px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-sm text-gray-300 hover:text-white hover:border-green-500 transition-colors cursor-default"
+                    >
+                      {t}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </ClayCard>
+        </div>
       </div>
     </div>
   </section>
