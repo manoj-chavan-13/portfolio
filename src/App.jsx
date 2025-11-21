@@ -30,6 +30,10 @@ import {
   Lightbulb,
   Rocket,
   BookOpen,
+  Database,
+  Wifi,
+  Server,
+  LayoutGrid,
 } from "lucide-react";
 
 // --- GLOBAL STYLES & FONTS ---
@@ -125,8 +129,8 @@ const AnimatedBackground = () => (
     <div className="absolute top-[20%] right-[-20%] w-[80vw] md:w-[50vw] h-[80vw] md:h-[50vw] bg-violet-800/30 rounded-full blur-[80px] md:blur-[120px] animate-blob animation-delay-2000 mix-blend-screen opacity-40 md:opacity-50"></div>
     <div className="absolute bottom-[-20%] left-[20%] w-[90vw] md:w-[60vw] h-[90vw] md:h-[60vw] bg-cyan-800/20 rounded-full blur-[80px] md:blur-[120px] animate-blob animation-delay-4000 mix-blend-screen opacity-30 md:opacity-40"></div>
 
-    {/* Noise Texture */}
-    <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 brightness-100 contrast-150 mix-blend-overlay"></div>
+    {/* Reduced Noise Texture Globally */}
+    <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10 brightness-100 contrast-150 mix-blend-overlay"></div>
 
     {/* Futuristic Grid - Finer grid on mobile */}
     <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:40px_40px] md:bg-[size:60px_60px] [mask-image:radial-gradient(ellipse_at_center,black_60%,transparent_90%)] pointer-events-none"></div>
@@ -416,162 +420,304 @@ const HomePage = ({ setPage }) => (
   </section>
 );
 
-// 2. WORK
+// 2. WORK - MASSIVE CINEMATIC UPDATE (New Layout)
 const WorkPage = () => (
   <section className="min-h-screen pt-24 pb-40 px-4 md:px-6">
     <div className="max-w-7xl mx-auto">
-      <div className="mb-16 text-center md:text-left">
-        <h2 className="text-4xl md:text-6xl font-bold text-white mb-4 font-display">
-          Selected <span className="text-blue-500">Works</span>
+      {/* Header */}
+      <div className="mb-24 text-center md:text-left">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-[10px] md:text-xs font-bold uppercase tracking-widest mb-4">
+          <Briefcase size={12} />
+          <span>Portfolio</span>
+        </div>
+        <h2 className="text-5xl md:text-8xl font-bold text-white mb-6 font-display tracking-tight">
+          Selected{" "}
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-violet-400 to-cyan-400">
+            Works
+          </span>
         </h2>
-        <p className="text-gray-400 text-base md:text-lg max-w-2xl mx-auto md:mx-0">
-          Engineering solutions that solve real problems.
+        <p className="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto md:mx-0 leading-relaxed">
+          A curated gallery of engineering feats. From scalable EdTech platforms
+          to offline-first mobile architectures.
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-[auto] md:auto-rows-[400px]">
-        {/* Featured Project: Play_Bucket */}
+      {/* --- PROJECT 1: Play_Bucket (Redesigned Split Layout) --- */}
+      <div className="mb-24 group relative">
+        <div className="absolute -inset-1 bg-gradient-to-r from-orange-600 to-red-600 rounded-[2.5rem] blur opacity-20 group-hover:opacity-40 transition duration-1000"></div>
         <ClayCard
-          className="md:col-span-2 md:row-span-1 group relative overflow-hidden min-h-[320px]"
+          className="relative overflow-hidden min-h-[500px] md:min-h-[600px] p-0"
           glow="gold"
-          title="Play_Bucket"
-          subtitle="EdTech Platform"
-          icon={Layers}
         >
-          <div className="absolute top-0 right-0 p-6 z-20">
-            <ExternalLink className="text-gray-400 hover:text-white cursor-pointer transition-colors" />
-          </div>
+          {/* Background Atmosphere - Smooth Gradient */}
+          <div className="absolute inset-0 bg-gradient-to-br from-[#0f0f13] via-[#1a100c] to-[#2d1b14]"></div>
+          <div className="absolute top-[-50%] right-[-20%] w-[80%] h-[80%] bg-orange-600/10 rounded-full blur-[150px]"></div>
 
-          <div className="relative z-10 mt-4 flex-1">
-            <p className="text-gray-300 mb-6 max-w-md leading-relaxed text-sm md:text-base">
-              A comprehensive learning ecosystem. Collaborative whiteboards,
-              YouTube course integration, and a personalized Gemini AI Tutor.
-            </p>
-            <div className="flex flex-wrap gap-2 mb-8">
-              {["React", "Node.js", "MongoDB", "Socket.io", "Gemini AI"].map(
-                (t) => (
-                  <span
-                    key={t}
-                    className="px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-[10px] md:text-xs text-gray-300"
-                  >
-                    {t}
+          {/* Split Content Grid */}
+          <div className="relative z-10 h-full flex flex-col md:grid md:grid-cols-[1fr_0.8fr] gap-8 md:gap-16 p-8 md:p-16">
+            {/* Left Panel: Narrative */}
+            <div className="flex flex-col justify-between h-full">
+              <div>
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="p-2 rounded-lg bg-orange-500/20 text-orange-400">
+                    <Layers size={24} />
+                  </div>
+                  <span className="text-orange-400 font-mono text-xs tracking-widest uppercase font-bold">
+                    EdTech Platform
                   </span>
-                )
-              )}
+                </div>
+
+                <h3 className="text-4xl md:text-7xl font-bold text-white font-display mb-6 leading-tight">
+                  Play_
+                  <br />
+                  Bucket
+                </h3>
+
+                <p className="text-gray-300 text-lg md:text-xl leading-relaxed max-w-lg">
+                  A massive learning ecosystem integrating real-time
+                  collaborative whiteboards, YouTube course integration, and a
+                  personalized{" "}
+                  <span className="text-white font-bold">Gemini AI Tutor</span>.
+                </p>
+              </div>
+
+              <div className="mt-8 md:mt-0">
+                <a
+                  href="#"
+                  className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-white text-black font-bold text-sm uppercase tracking-wide hover:scale-105 transition-transform"
+                >
+                  View Project <ArrowRight size={18} />
+                </a>
+              </div>
+            </div>
+
+            {/* Right Panel: HUD / Metrics */}
+            <div className="flex flex-col justify-center">
+              <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl p-8">
+                <div className="grid grid-cols-2 gap-8 mb-8">
+                  {[
+                    { label: "Users", val: "500+" },
+                    { label: "Latency", val: "< 50ms" },
+                    { label: "AI Model", val: "Gemini Pro" },
+                    { label: "Stack", val: "MERN" },
+                  ].map((stat) => (
+                    <div key={stat.label}>
+                      <div className="text-3xl font-bold text-white font-display">
+                        {stat.val}
+                      </div>
+                      <div className="text-xs text-gray-500 uppercase tracking-wider mt-2">
+                        {stat.label}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="border-t border-white/10 pt-8">
+                  <div className="text-xs text-gray-500 uppercase tracking-widest mb-4">
+                    Technology
+                  </div>
+                  <div className="flex flex-wrap gap-2">
+                    {[
+                      "React",
+                      "Node.js",
+                      "Socket.io",
+                      "MongoDB",
+                      "Express",
+                    ].map((t) => (
+                      <span
+                        key={t}
+                        className="px-3 py-1.5 rounded-lg bg-orange-500/10 border border-orange-500/20 text-orange-200 text-xs font-mono"
+                      >
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-
-          {/* Visual Preview */}
-          <div className="absolute -bottom-10 -right-10 z-0 opacity-10 group-hover:opacity-20 transition-all duration-500 transform group-hover:scale-110 rotate-[-10deg]">
-            <span className="text-[5rem] md:text-[8rem] font-display font-bold text-orange-500 select-none whitespace-nowrap">
-              EdTech
-            </span>
-          </div>
-
-          <div className="absolute bottom-0 right-0 w-64 h-64 bg-orange-600/10 rounded-full blur-[80px] pointer-events-none z-0"></div>
         </ClayCard>
+      </div>
 
-        {/* Services Card */}
-        <ClayCard
-          className="md:col-span-1 bg-gradient-to-b from-blue-900/20 to-transparent min-h-[300px]"
-          glow="blue"
-          title="My Services"
-          icon={Briefcase}
-        >
-          <ul className="space-y-3 md:space-y-4 mt-4">
-            <li className="flex items-center gap-3 text-gray-300">
-              <div className="p-2 bg-blue-500/20 rounded-lg">
-                <Globe size={16} className="text-blue-400" />
-              </div>
-              <span className="text-xs md:text-sm">Full Stack Web Dev</span>
-            </li>
-            <li className="flex items-center gap-3 text-gray-300">
-              <div className="p-2 bg-violet-500/20 rounded-lg">
-                <Smartphone size={16} className="text-violet-400" />
-              </div>
-              <span className="text-xs md:text-sm">iOS/Android Apps</span>
-            </li>
-            <li className="flex items-center gap-3 text-gray-300">
-              <div className="p-2 bg-cyan-500/20 rounded-lg">
-                <Cpu size={16} className="text-cyan-400" />
-              </div>
-              <span className="text-xs md:text-sm">AI Integration</span>
-            </li>
-            <li className="flex items-center gap-3 text-gray-300">
-              <div className="p-2 bg-green-500/20 rounded-lg">
-                <PenTool size={16} className="text-green-400" />
-              </div>
-              <span className="text-xs md:text-sm">UI/UX Prototyping</span>
-            </li>
-          </ul>
-          <div className="mt-auto pt-6">
-            <button className="w-full py-3 bg-white text-black font-bold rounded-xl text-sm hover:bg-gray-200 transition-colors shadow-lg">
-              Hire Me
-            </button>
-          </div>
-        </ClayCard>
-
+      {/* --- GRID FOR SECONDARY PROJECTS --- */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-24">
         {/* Project 2: Digital Garage */}
         <ClayCard
-          className="md:col-span-1 min-h-[280px]"
+          className="min-h-[500px] relative overflow-hidden group p-0"
           glow="blue"
-          title="Digital Garage"
-          subtitle="Mobile App"
-          icon={Smartphone}
         >
-          <div className="mt-auto">
-            <p className="text-gray-400 text-sm mb-4 line-clamp-3 leading-relaxed">
-              Vehicle management solution. Appointment booking, inventory
-              tracking, and offline-first architecture using Supabase.
-            </p>
-            <div className="flex gap-2">
-              <span className="px-2 py-1 bg-blue-500/10 text-blue-300 text-[10px] rounded border border-blue-500/20">
-                Flutter
-              </span>
-              <span className="px-2 py-1 bg-blue-500/10 text-blue-300 text-[10px] rounded border border-blue-500/20">
-                Supabase
-              </span>
-            </div>
-          </div>
-        </ClayCard>
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(59,130,246,0.15)_0%,transparent_60%)]"></div>
 
-        {/* Project 3: LearnX */}
-        <ClayCard
-          className="md:col-span-2 overflow-hidden min-h-[300px]"
-          glow="violet"
-          title="LearnX"
-          subtitle="AI Document Analysis"
-          icon={Cpu}
-        >
-          <div className="flex flex-col sm:flex-row gap-6 md:gap-8 h-full relative z-10">
-            <div className="flex-1 mt-2">
-              <p className="text-gray-300 mb-6 leading-relaxed text-sm md:text-base">
-                Upload PDFs and chat with them. Uses RAG (Retrieval Augmented
-                Generation) and Vector DBs to provide grounded answers.
+          <div className="relative z-10 p-8 md:p-12 flex flex-col h-full">
+            <div className="mb-auto">
+              <div className="text-blue-400 font-mono text-xs tracking-widest uppercase mb-2">
+                Mobile Application
+              </div>
+              <h3 className="text-3xl md:text-5xl font-bold text-white font-display mb-4">
+                Digital Garage
+              </h3>
+              <p className="text-gray-400 text-base md:text-lg leading-relaxed mb-6">
+                A comprehensive solution for vehicle management. Features
+                offline-first architecture, appointment scheduling, and
+                inventory tracking.
               </p>
+            </div>
+
+            <div className="flex items-center gap-4 mb-8">
+              <div className="flex -space-x-2">
+                {[1, 2, 3].map((i) => (
+                  <div
+                    key={i}
+                    className="w-8 h-8 rounded-full bg-blue-500/20 border border-black"
+                  ></div>
+                ))}
+              </div>
+              <span className="text-sm text-gray-500">Used by 10+ Garages</span>
+            </div>
+
+            <div className="mt-auto border-t border-white/10 pt-6">
               <div className="flex flex-wrap gap-2">
-                {["React", "Tailwind", "Gemini API", "Vector DB"].map((t) => (
+                {["Flutter", "Supabase", "Riverpod"].map((t) => (
                   <span
                     key={t}
-                    className="px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-[10px] md:text-xs text-gray-300"
+                    className="px-3 py-1.5 rounded-lg bg-blue-500/10 text-blue-300 text-xs border border-blue-500/20"
                   >
                     {t}
                   </span>
                 ))}
               </div>
             </div>
-            <div className="hidden sm:flex w-1/3 h-full bg-violet-500/10 rounded-xl border border-violet-500/20 items-center justify-center relative overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/50"></div>
-              <Zap className="text-violet-400 w-16 h-16 relative z-10" />
+          </div>
+
+          {/* Visual Element */}
+          <div className="absolute bottom-[-50px] right-[-50px] w-64 h-64 bg-blue-600/20 rounded-full blur-[80px] group-hover:bg-blue-600/30 transition-colors"></div>
+          <Smartphone
+            className="absolute bottom-8 right-8 text-blue-500/10 w-48 h-48 rotate-[-15deg]"
+            strokeWidth={0.5}
+          />
+        </ClayCard>
+
+        {/* Project 3: LearnX */}
+        <ClayCard
+          className="min-h-[500px] relative overflow-hidden group p-0"
+          glow="violet"
+        >
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(139,92,246,0.15)_0%,transparent_60%)]"></div>
+
+          <div className="relative z-10 p-8 md:p-12 flex flex-col h-full">
+            <div className="mb-auto">
+              <div className="text-violet-400 font-mono text-xs tracking-widest uppercase mb-2">
+                AI Tool
+              </div>
+              <h3 className="text-3xl md:text-5xl font-bold text-white font-display mb-4">
+                LearnX
+              </h3>
+              <p className="text-gray-400 text-base md:text-lg leading-relaxed mb-6">
+                Intelligent Document Analysis. Upload PDFs and chat with them
+                using RAG (Retrieval Augmented Generation) for grounded answers.
+              </p>
+            </div>
+
+            <div className="p-4 rounded-xl bg-white/5 border border-white/10 mb-8 backdrop-blur-sm">
+              <div className="flex items-center gap-3 mb-2">
+                <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
+                <span className="text-xs text-gray-300 font-mono">
+                  AI Response Generation
+                </span>
+              </div>
+              <div className="h-1.5 w-full bg-gray-800 rounded-full overflow-hidden">
+                <div className="h-full bg-violet-500 w-[80%] animate-[shimmer_2s_infinite]"></div>
+              </div>
+            </div>
+
+            <div className="mt-auto border-t border-white/10 pt-6">
+              <div className="flex flex-wrap gap-2">
+                {["React", "Vector DB", "Gemini API"].map((t) => (
+                  <span
+                    key={t}
+                    className="px-3 py-1.5 rounded-lg bg-violet-500/10 text-violet-300 text-xs border border-violet-500/20"
+                  >
+                    {t}
+                  </span>
+                ))}
+              </div>
             </div>
           </div>
 
-          <div className="absolute -bottom-8 -right-8 z-0 opacity-5 group-hover:opacity-10 transition-all duration-500 rotate-[-5deg]">
-            <span className="text-[5rem] md:text-[7rem] font-display font-bold text-violet-500 select-none whitespace-nowrap">
-              AI TOOL
-            </span>
-          </div>
+          <Cpu
+            className="absolute bottom-8 right-8 text-violet-500/10 w-48 h-48 rotate-[15deg]"
+            strokeWidth={0.5}
+          />
         </ClayCard>
+      </div>
+
+      {/* --- SERVICES COMMAND CENTER (Redesigned) --- */}
+      <div className="mb-24">
+        <h3 className="text-2xl md:text-3xl font-bold text-white mb-8 pl-4 border-l-4 border-blue-500">
+          Capabilities
+        </h3>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {/* Card 1: Web */}
+          <ClayCard
+            className="p-8 bg-gradient-to-br from-[#0a0a12] to-blue-950/20"
+            glow="blue"
+          >
+            <Globe className="text-blue-400 w-10 h-10 mb-6" />
+            <h4 className="text-xl font-bold text-white mb-3">
+              Web Engineering
+            </h4>
+            <p className="text-gray-400 text-sm leading-relaxed mb-6">
+              Building scalable, SEO-friendly web apps using Next.js and React.
+              Focus on performance and accessibility.
+            </p>
+            <ul className="space-y-2 text-sm text-gray-500 font-mono">
+              <li>• Responsive Design</li>
+              <li>• Server Side Rendering</li>
+              <li>• Progressive Web Apps</li>
+            </ul>
+          </ClayCard>
+
+          {/* Card 2: Mobile */}
+          <ClayCard
+            className="p-8 bg-gradient-to-br from-[#0a0a12] to-violet-950/20"
+            glow="violet"
+          >
+            <Smartphone className="text-violet-400 w-10 h-10 mb-6" />
+            <h4 className="text-xl font-bold text-white mb-3">
+              Mobile Architecture
+            </h4>
+            <p className="text-gray-400 text-sm leading-relaxed mb-6">
+              Native-performance cross-platform apps with Flutter. Smooth
+              animations and offline capabilities.
+            </p>
+            <ul className="space-y-2 text-sm text-gray-500 font-mono">
+              <li>• iOS & Android</li>
+              <li>• Clean Architecture</li>
+              <li>• Custom Animations</li>
+            </ul>
+          </ClayCard>
+
+          {/* Card 3: Backend */}
+          <ClayCard
+            className="p-8 bg-gradient-to-br from-[#0a0a12] to-cyan-950/20"
+            glow="cyan"
+          >
+            <Server className="text-cyan-400 w-10 h-10 mb-6" />
+            <h4 className="text-xl font-bold text-white mb-3">
+              Backend Systems
+            </h4>
+            <p className="text-gray-400 text-sm leading-relaxed mb-6">
+              Robust APIs and database schema design. Secure authentication and
+              real-time data synchronization.
+            </p>
+            <ul className="space-y-2 text-sm text-gray-500 font-mono">
+              <li>• REST & GraphQL</li>
+              <li>• MongoDB / SQL</li>
+              <li>• Cloud Deployment</li>
+            </ul>
+          </ClayCard>
+        </div>
       </div>
 
       {/* GitHub Discovery Section - Responsive */}
