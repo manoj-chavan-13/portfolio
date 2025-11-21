@@ -264,156 +264,144 @@ const DockNav = ({ activePage, setPage }) => {
 
 // 1. HOME
 const HomePage = ({ setPage }) => (
-  <section className="min-h-screen flex flex-col justify-center pt-24 pb-32 px-4 md:px-6">
-    <div className="max-w-7xl mx-auto w-full grid lg:grid-cols-2 gap-10 lg:gap-24 items-center">
+  <section className="min-h-screen flex flex-col justify-center pt-24 pb-32 px-4 md:px-6 relative overflow-hidden">
+    <div className="max-w-7xl mx-auto w-full grid lg:grid-cols-2 gap-10 lg:gap-24 items-center relative z-10">
       {/* Left: Typography & CTA */}
-      <div className="space-y-6 md:space-y-8 z-10 order-2 lg:order-1">
-        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-950/30 border border-blue-500/30 text-blue-300 text-[10px] md:text-xs font-bold uppercase tracking-widest animate-fade-in-up shadow-[0_0_20px_-5px_rgba(59,130,246,0.4)]">
-          <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></span>
-          Available for Hire
+      <div className="space-y-8 z-10 order-2 lg:order-1">
+        {/* Status Badge - "Command Center" Style */}
+        <div className="flex items-center gap-4">
+          <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-green-900/20 border border-green-500/30 text-green-400 text-[10px] md:text-xs font-bold uppercase tracking-widest shadow-[0_0_15px_rgba(34,197,94,0.2)]">
+            <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+            System Online
+          </div>
+          <div className="h-px w-12 bg-white/10"></div>
+          <span className="text-xs text-gray-500 font-mono tracking-widest">
+            V 2.5.0
+          </span>
         </div>
 
-        <div className="space-y-2">
-          <h1 className="text-5xl sm:text-7xl lg:text-8xl font-bold tracking-tighter text-white leading-[0.95]">
+        <div className="space-y-4">
+          <h1 className="text-6xl sm:text-8xl lg:text-9xl font-bold tracking-tighter text-white leading-[0.9] animate-fade-in-up">
             Manoj <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-violet-400 to-cyan-400 drop-shadow-[0_0_30px_rgba(124,58,237,0.3)]">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-violet-400 to-cyan-400 drop-shadow-[0_0_40px_rgba(124,58,237,0.4)]">
               Chavan.
             </span>
           </h1>
+          <h2 className="text-xl md:text-2xl text-gray-400 font-light tracking-wide">
+            Full Stack Engineer &{" "}
+            <span className="text-white font-normal">Mobile Architect</span>
+          </h2>
         </div>
 
-        <p className="text-lg md:text-xl text-gray-400 max-w-lg leading-relaxed">
-          Architecting{" "}
-          <span className="text-white font-semibold">Digital Experiences</span>{" "}
-          that merge the precision of engineering with the fluidity of design.
-          Specialist in MERN & Flutter.
+        <p className="text-lg text-gray-400 max-w-lg leading-relaxed border-l-2 border-white/10 pl-6">
+          Crafting digital experiences where{" "}
+          <span className="text-white font-semibold">Performance</span> meets{" "}
+          <span className="text-white font-semibold">Precision</span>.
+          Specializing in scalable MERN architectures and fluid Flutter
+          applications.
         </p>
 
-        <div className="flex flex-wrap gap-4 pt-2 md:pt-4">
+        <div className="flex flex-wrap gap-4 pt-4">
           <button
             onClick={() => setPage("work")}
-            className="flex-1 sm:flex-none px-6 md:px-8 py-3 md:py-4 bg-white text-black rounded-2xl font-bold text-sm md:text-base shadow-[0_0_40px_-10px_rgba(255,255,255,0.4)] hover:scale-105 transition-transform flex justify-center items-center gap-2 group"
+            className="flex-1 sm:flex-none px-8 py-4 bg-white text-black rounded-2xl font-bold text-sm md:text-base shadow-[0_0_40px_-10px_rgba(255,255,255,0.5)] hover:scale-105 transition-transform flex justify-center items-center gap-3 group"
           >
-            View Projects
+            Explore Works
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </button>
 
           <button
             onClick={() => setPage("journey")}
-            className="flex-1 sm:flex-none px-6 md:px-8 py-3 md:py-4 bg-white/5 border border-white/10 rounded-2xl font-bold text-sm md:text-base text-white hover:bg-white/10 transition-all flex justify-center items-center gap-2 backdrop-blur-md"
+            className="flex-1 sm:flex-none px-8 py-4 bg-[#0a0a12] border border-white/10 rounded-2xl font-bold text-sm md:text-base text-white hover:bg-white/5 hover:border-white/20 transition-all flex justify-center items-center gap-3 backdrop-blur-xl"
           >
-            My Journey
+            <User className="w-4 h-4" />
+            About Me
           </button>
         </div>
 
-        {/* Social Proof / Stats - Responsive Grid */}
-        <div className="pt-8 border-t border-white/5 grid grid-cols-3 gap-4 md:gap-8">
-          <div>
-            <div className="text-xl md:text-2xl font-bold text-white font-display">
-              3+
-            </div>
-            <div className="text-[10px] md:text-xs text-gray-500 uppercase tracking-wider">
-              Years Exp
-            </div>
+        {/* Tech Scroller - Mini */}
+        <div className="pt-8 flex items-center gap-4 opacity-60">
+          <div className="text-xs font-mono text-gray-500 uppercase tracking-widest">
+            Stack:
           </div>
-          <div>
-            <div className="text-xl md:text-2xl font-bold text-white font-display">
-              10+
-            </div>
-            <div className="text-[10px] md:text-xs text-gray-500 uppercase tracking-wider">
-              Projects
-            </div>
-          </div>
-          <div>
-            <div className="text-xl md:text-2xl font-bold text-white font-display">
-              100%
-            </div>
-            <div className="text-[10px] md:text-xs text-gray-500 uppercase tracking-wider">
-              Commitment
-            </div>
+          <div className="flex gap-4 text-gray-400">
+            <Code2 size={16} />
+            <Globe size={16} />
+            <Smartphone size={16} />
+            <Database size={16} />
           </div>
         </div>
       </div>
 
-      {/* Right: Abstract 3D Representation */}
-      <div className="relative order-1 lg:order-2 h-[350px] md:h-[500px] lg:h-[600px] w-full flex items-center justify-center">
-        <div className="relative w-full max-w-[320px] md:max-w-md aspect-square">
-          <div className="absolute inset-0 bg-gradient-to-tr from-blue-600/30 to-violet-600/30 rounded-full blur-[60px] md:blur-[80px] animate-pulse-glow"></div>
+      {/* Right: Holographic Code Terminal (Replaces Abstract 3D) */}
+      <div className="relative order-1 lg:order-2 h-[400px] md:h-[500px] lg:h-[600px] w-full flex items-center justify-center">
+        <div className="absolute inset-0 bg-gradient-to-b from-blue-500/10 to-transparent rounded-full blur-[100px] pointer-events-none"></div>
 
-          <div className="absolute inset-0 bg-[#0a0a12] rounded-[2.5rem] md:rounded-[3rem] border border-white/10 shadow-2xl flex flex-col p-6 md:p-8 overflow-hidden rotate-3 hover:rotate-0 transition-all duration-700">
-            <div className="absolute top-0 left-0 w-full h-full bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10 mix-blend-overlay"></div>
-
-            <div className="flex justify-between items-center mb-6 md:mb-8">
-              <div className="flex gap-2">
-                <div className="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-red-500 shadow-[0_0_10px_rgba(239,68,68,0.5)]"></div>
-                <div className="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-yellow-500 shadow-[0_0_10px_rgba(234,179,8,0.5)]"></div>
-                <div className="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-green-500 shadow-[0_0_10px_rgba(34,197,94,0.5)]"></div>
-              </div>
-              <Code2 className="text-gray-600" size={20} />
+        {/* Floating Terminal Window */}
+        <div className="relative w-full max-w-md bg-[#05050a]/90 backdrop-blur-xl rounded-2xl border border-white/10 shadow-2xl overflow-hidden animate-float">
+          {/* Terminal Header */}
+          <div className="flex items-center justify-between px-4 py-3 bg-white/5 border-b border-white/5">
+            <div className="flex gap-2">
+              <div className="w-3 h-3 rounded-full bg-red-500/80"></div>
+              <div className="w-3 h-3 rounded-full bg-yellow-500/80"></div>
+              <div className="w-3 h-3 rounded-full bg-green-500/80"></div>
             </div>
-
-            <div className="space-y-3 md:space-y-4 font-mono text-xs md:text-sm">
-              <div className="p-3 md:p-4 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center gap-3 md:gap-4">
-                <Globe className="text-blue-400" size={18} />
-                <div>
-                  <div className="text-white font-bold">Full Stack</div>
-                  <div className="text-blue-300 text-[10px] md:text-xs">
-                    MERN Ecosystem
-                  </div>
-                </div>
-              </div>
-              <div className="p-3 md:p-4 rounded-xl bg-violet-500/10 border border-violet-500/20 flex items-center gap-3 md:gap-4">
-                <Smartphone className="text-violet-400" size={18} />
-                <div>
-                  <div className="text-white font-bold">Mobile</div>
-                  <div className="text-violet-300 text-[10px] md:text-xs">
-                    Flutter & Dart
-                  </div>
-                </div>
-              </div>
-              <div className="p-3 md:p-4 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center gap-3 md:gap-4">
-                <Cpu className="text-cyan-400" size={18} />
-                <div>
-                  <div className="text-white font-bold">AI Integration</div>
-                  <div className="text-cyan-300 text-[10px] md:text-xs">
-                    Gemini API & RAG
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="mt-auto pt-6">
-              <div className="h-1 w-full bg-gray-800 rounded-full overflow-hidden">
-                <div className="h-full bg-gradient-to-r from-blue-500 via-violet-500 to-cyan-500 w-[85%]"></div>
-              </div>
-              <div className="flex justify-between text-[10px] md:text-xs text-gray-500 mt-2">
-                <span>System Status</span>
-                <span className="text-green-400">Online</span>
-              </div>
+            <div className="flex items-center gap-2 text-[10px] text-gray-500 font-mono">
+              <Terminal size={10} />
+              <span>manoj@dev:~/portfolio</span>
             </div>
           </div>
+
+          {/* Terminal Body - Typing Effect */}
+          <div className="p-6 font-mono text-xs md:text-sm space-y-4">
+            <div className="flex gap-2">
+              <span className="text-green-400">➜</span>
+              <span className="text-blue-400">~</span>
+              <span className="text-gray-300">
+                npx init-profile --name="Manoj"
+              </span>
+            </div>
+
+            <div className="space-y-2 pl-4 border-l border-white/10">
+              <div className="text-gray-400">Loading developer profile...</div>
+              <div className="text-green-400">✔ Core Loaded: MERN Stack</div>
+              <div className="text-green-400">
+                ✔ Mobile Module: Flutter & Dart
+              </div>
+              <div className="text-green-400">
+                ✔ AI Engine: Gemini API Integration
+              </div>
+              <div className="text-yellow-400 flex items-center gap-2">
+                <span className="animate-pulse">
+                  ⚠ Status: Ready for next challenge
+                </span>
+              </div>
+            </div>
+
+            <div className="flex gap-2 pt-4">
+              <span className="text-green-400">➜</span>
+              <span className="text-blue-400">~</span>
+              <span className="text-gray-300 animate-pulse">_</span>
+            </div>
+          </div>
+
+          {/* Holographic Reflection */}
+          <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
+          <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-blue-500/10 to-transparent pointer-events-none"></div>
         </div>
       </div>
     </div>
 
-    {/* Infinite Marquee */}
-    <div className="fixed bottom-0 left-0 w-full bg-black/50 backdrop-blur-md border-t border-white/5 py-4 overflow-hidden z-40 hidden md:block">
-      <div className="flex animate-marquee gap-12 whitespace-nowrap">
-        {[...Array(2)].map((_, i) => (
-          <div
-            key={i}
-            className="flex gap-12 items-center text-gray-400 font-display font-bold text-4xl opacity-20"
-          >
-            <span>REACT</span> <span>•</span>
-            <span>FLUTTER</span> <span>•</span>
-            <span>NODE.JS</span> <span>•</span>
-            <span>MONGODB</span> <span>•</span>
-            <span>TYPESCRIPT</span> <span>•</span>
-            <span>TAILWIND</span> <span>•</span>
-            <span>SUPABASE</span> <span>•</span>
-            <span>FIGMA</span> <span>•</span>
-            <span>PYTHON</span> <span>•</span>
-          </div>
+    {/* Infinite Marquee - Subtle Footer */}
+    <div className="absolute bottom-0 left-0 w-full border-t border-white/5 py-6 overflow-hidden opacity-30 pointer-events-none">
+      <div className="flex animate-marquee gap-24 whitespace-nowrap text-4xl font-display font-bold text-transparent bg-clip-text bg-gradient-to-b from-gray-700 to-transparent">
+        {[...Array(4)].map((_, i) => (
+          <React.Fragment key={i}>
+            <span>CREATIVE</span>
+            <span>ENGINEER</span>
+            <span>ARCHITECT</span>
+            <span>BUILDER</span>
+          </React.Fragment>
         ))}
       </div>
     </div>
@@ -442,213 +430,214 @@ const WorkPage = () => (
         </p>
       </div>
 
-      {/* --- PROJECT 1: Play_Bucket (Redesigned Split Layout) --- */}
-      <div className="mb-24 group relative">
-        <div className="absolute -inset-1 bg-gradient-to-r from-orange-600 to-red-600 rounded-[2.5rem] blur opacity-20 group-hover:opacity-40 transition duration-1000"></div>
-        <ClayCard
-          className="relative overflow-hidden min-h-[500px] md:min-h-[600px] p-0"
-          glow="gold"
-        >
-          {/* Background Atmosphere - Smooth Gradient */}
-          <div className="absolute inset-0 bg-gradient-to-br from-[#0f0f13] via-[#1a100c] to-[#2d1b14]"></div>
-          <div className="absolute top-[-50%] right-[-20%] w-[80%] h-[80%] bg-orange-600/10 rounded-full blur-[150px]"></div>
+      {/* --- PROJECT 1: Play_Bucket (Cinematic Showcase) --- */}
+      <div className="relative mb-32 group">
+        {/* Cinematic "Stage Light" Glow */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-[radial-gradient(circle_at_center,rgba(249,115,22,0.08)_0%,transparent_70%)] blur-[100px] pointer-events-none"></div>
 
-          {/* Split Content Grid */}
-          <div className="relative z-10 h-full flex flex-col md:grid md:grid-cols-[1fr_0.8fr] gap-8 md:gap-16 p-8 md:p-16">
-            {/* Left Panel: Narrative */}
-            <div className="flex flex-col justify-between h-full">
-              <div>
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="p-2 rounded-lg bg-orange-500/20 text-orange-400">
-                    <Layers size={24} />
-                  </div>
-                  <span className="text-orange-400 font-mono text-xs tracking-widest uppercase font-bold">
-                    EdTech Platform
-                  </span>
-                </div>
-
-                <h3 className="text-4xl md:text-7xl font-bold text-white font-display mb-6 leading-tight">
-                  Play_
-                  <br />
-                  Bucket
-                </h3>
-
-                <p className="text-gray-300 text-lg md:text-xl leading-relaxed max-w-lg">
-                  A massive learning ecosystem integrating real-time
-                  collaborative whiteboards, YouTube course integration, and a
-                  personalized{" "}
-                  <span className="text-white font-bold">Gemini AI Tutor</span>.
-                </p>
-              </div>
-
-              <div className="mt-8 md:mt-0">
-                <a
-                  href="#"
-                  className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-white text-black font-bold text-sm uppercase tracking-wide hover:scale-105 transition-transform"
-                >
-                  View Project <ArrowRight size={18} />
-                </a>
-              </div>
+        <div className="relative grid lg:grid-cols-[1.2fr_0.8fr] gap-12 lg:gap-20 items-center">
+          {/* Left: Narrative (Floating without box) */}
+          <div className="relative z-10 order-2 lg:order-1">
+            <div className="inline-flex items-center gap-2 text-orange-400 font-mono text-xs tracking-widest uppercase mb-6">
+              <Layers size={14} />
+              <span>EdTech Platform</span>
             </div>
 
-            {/* Right Panel: HUD / Metrics */}
-            <div className="flex flex-col justify-center">
-              <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl p-8">
-                <div className="grid grid-cols-2 gap-8 mb-8">
-                  {[
-                    { label: "Users", val: "500+" },
-                    { label: "Latency", val: "< 50ms" },
-                    { label: "AI Model", val: "Gemini Pro" },
-                    { label: "Stack", val: "MERN" },
-                  ].map((stat) => (
-                    <div key={stat.label}>
-                      <div className="text-3xl font-bold text-white font-display">
-                        {stat.val}
-                      </div>
-                      <div className="text-xs text-gray-500 uppercase tracking-wider mt-2">
-                        {stat.label}
-                      </div>
-                    </div>
-                  ))}
-                </div>
+            <h3 className="text-5xl md:text-8xl font-bold text-white font-display mb-8 leading-tight">
+              Play_
+              <br />
+              Bucket
+            </h3>
 
-                <div className="border-t border-white/10 pt-8">
-                  <div className="text-xs text-gray-500 uppercase tracking-widest mb-4">
-                    Technology
+            <p className="text-gray-300 text-lg md:text-xl leading-relaxed max-w-lg mb-8 border-l-2 border-orange-500/30 pl-6">
+              A massive learning ecosystem integrating real-time collaborative
+              whiteboards, YouTube course integration, and a personalized{" "}
+              <span className="text-white font-bold">Gemini AI Tutor</span>.
+            </p>
+
+            <div className="flex flex-wrap gap-4">
+              <a
+                href="#"
+                className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-white text-black font-bold text-sm uppercase tracking-wide hover:scale-105 transition-transform shadow-[0_0_30px_-5px_rgba(255,255,255,0.4)]"
+              >
+                View Project <ArrowRight size={18} />
+              </a>
+              <a
+                href="#"
+                className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-[#0a0a12] border border-white/10 text-white font-bold text-sm uppercase tracking-wide hover:bg-white/5 transition-all"
+              >
+                <Github size={18} /> Code
+              </a>
+            </div>
+          </div>
+
+          {/* Right: HUD / Metrics (Floating in space) */}
+          <div className="relative z-10 order-1 lg:order-2">
+            <div className="relative bg-[#0a0a12]/40 backdrop-blur-xl border border-white/10 rounded-[2rem] p-8 md:p-12 shadow-2xl animate-float">
+              {/* Floating 3D Icon */}
+              <div className="absolute -top-12 -right-12 text-orange-500/10">
+                <Layers size={200} strokeWidth={0.5} />
+              </div>
+
+              <div className="grid grid-cols-2 gap-y-10 gap-x-8 relative z-10">
+                {[
+                  { label: "Users", val: "500+" },
+                  { label: "Latency", val: "< 50ms" },
+                  { label: "AI Model", val: "Gemini Pro" },
+                  { label: "Stack", val: "MERN" },
+                ].map((stat) => (
+                  <div key={stat.label} className="group">
+                    <div className="text-3xl md:text-4xl font-bold text-white font-display group-hover:text-orange-400 transition-colors">
+                      {stat.val}
+                    </div>
+                    <div className="text-xs text-gray-500 uppercase tracking-widest mt-2">
+                      {stat.label}
+                    </div>
                   </div>
-                  <div className="flex flex-wrap gap-2">
-                    {[
-                      "React",
-                      "Node.js",
-                      "Socket.io",
-                      "MongoDB",
-                      "Express",
-                    ].map((t) => (
-                      <span
-                        key={t}
-                        className="px-3 py-1.5 rounded-lg bg-orange-500/10 border border-orange-500/20 text-orange-200 text-xs font-mono"
-                      >
-                        {t}
-                      </span>
-                    ))}
-                  </div>
+                ))}
+              </div>
+
+              <div className="mt-10 pt-8 border-t border-white/10">
+                <div className="text-xs text-gray-500 uppercase tracking-widest mb-4">
+                  Core Tech
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  {["React", "Node.js", "Socket.io", "MongoDB"].map((t) => (
+                    <span
+                      key={t}
+                      className="px-3 py-1.5 rounded-md bg-orange-500/10 border border-orange-500/20 text-orange-200 text-xs font-mono"
+                    >
+                      {t}
+                    </span>
+                  ))}
                 </div>
               </div>
             </div>
           </div>
-        </ClayCard>
+        </div>
+
+        {/* Giant Watermark Background */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-0 pointer-events-none opacity-5">
+          <span className="text-[15vw] font-display font-bold text-white whitespace-nowrap">
+            EDTECH
+          </span>
+        </div>
       </div>
 
       {/* --- GRID FOR SECONDARY PROJECTS --- */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-24">
         {/* Project 2: Digital Garage */}
-        <ClayCard
-          className="min-h-[500px] relative overflow-hidden group p-0"
-          glow="blue"
-        >
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(59,130,246,0.15)_0%,transparent_60%)]"></div>
-
-          <div className="relative z-10 p-8 md:p-12 flex flex-col h-full">
-            <div className="mb-auto">
-              <div className="text-blue-400 font-mono text-xs tracking-widest uppercase mb-2">
-                Mobile Application
+        <div className="relative group">
+          <div className="absolute inset-0 bg-blue-600/5 rounded-[3rem] blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          <ClayCard
+            className="min-h-[500px] relative overflow-hidden p-0 bg-[#0a0a12]"
+            glow="blue"
+          >
+            <div className="relative z-10 p-10 md:p-14 flex flex-col h-full">
+              <div className="mb-auto">
+                <div className="text-blue-400 font-mono text-xs tracking-widest uppercase mb-3">
+                  Mobile App
+                </div>
+                <h3 className="text-4xl font-bold text-white font-display mb-6">
+                  Digital Garage
+                </h3>
+                <p className="text-gray-400 text-lg leading-relaxed mb-8">
+                  A comprehensive solution for vehicle management. Features
+                  offline-first architecture, appointment scheduling, and
+                  inventory tracking.
+                </p>
               </div>
-              <h3 className="text-3xl md:text-5xl font-bold text-white font-display mb-4">
-                Digital Garage
-              </h3>
-              <p className="text-gray-400 text-base md:text-lg leading-relaxed mb-6">
-                A comprehensive solution for vehicle management. Features
-                offline-first architecture, appointment scheduling, and
-                inventory tracking.
-              </p>
-            </div>
 
-            <div className="flex items-center gap-4 mb-8">
-              <div className="flex -space-x-2">
-                {[1, 2, 3].map((i) => (
-                  <div
-                    key={i}
-                    className="w-8 h-8 rounded-full bg-blue-500/20 border border-black"
-                  ></div>
-                ))}
-              </div>
-              <span className="text-sm text-gray-500">Used by 10+ Garages</span>
-            </div>
-
-            <div className="mt-auto border-t border-white/10 pt-6">
-              <div className="flex flex-wrap gap-2">
-                {["Flutter", "Supabase", "Riverpod"].map((t) => (
-                  <span
-                    key={t}
-                    className="px-3 py-1.5 rounded-lg bg-blue-500/10 text-blue-300 text-xs border border-blue-500/20"
-                  >
-                    {t}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          {/* Visual Element */}
-          <div className="absolute bottom-[-50px] right-[-50px] w-64 h-64 bg-blue-600/20 rounded-full blur-[80px] group-hover:bg-blue-600/30 transition-colors"></div>
-          <Smartphone
-            className="absolute bottom-8 right-8 text-blue-500/10 w-48 h-48 rotate-[-15deg]"
-            strokeWidth={0.5}
-          />
-        </ClayCard>
-
-        {/* Project 3: LearnX */}
-        <ClayCard
-          className="min-h-[500px] relative overflow-hidden group p-0"
-          glow="violet"
-        >
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(139,92,246,0.15)_0%,transparent_60%)]"></div>
-
-          <div className="relative z-10 p-8 md:p-12 flex flex-col h-full">
-            <div className="mb-auto">
-              <div className="text-violet-400 font-mono text-xs tracking-widest uppercase mb-2">
-                AI Tool
-              </div>
-              <h3 className="text-3xl md:text-5xl font-bold text-white font-display mb-4">
-                LearnX
-              </h3>
-              <p className="text-gray-400 text-base md:text-lg leading-relaxed mb-6">
-                Intelligent Document Analysis. Upload PDFs and chat with them
-                using RAG (Retrieval Augmented Generation) for grounded answers.
-              </p>
-            </div>
-
-            <div className="p-4 rounded-xl bg-white/5 border border-white/10 mb-8 backdrop-blur-sm">
-              <div className="flex items-center gap-3 mb-2">
-                <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-                <span className="text-xs text-gray-300 font-mono">
-                  AI Response Generation
+              <div className="flex items-center gap-4 mb-10">
+                <div className="flex -space-x-3">
+                  {[1, 2, 3].map((i) => (
+                    <div
+                      key={i}
+                      className="w-10 h-10 rounded-full bg-blue-500/20 border-2 border-[#0a0a12]"
+                    ></div>
+                  ))}
+                </div>
+                <span className="text-sm text-gray-500 font-medium">
+                  Used by 10+ Garages
                 </span>
               </div>
-              <div className="h-1.5 w-full bg-gray-800 rounded-full overflow-hidden">
-                <div className="h-full bg-violet-500 w-[80%] animate-[shimmer_2s_infinite]"></div>
+
+              <div className="mt-auto border-t border-white/10 pt-8">
+                <div className="flex flex-wrap gap-2">
+                  {["Flutter", "Supabase", "Riverpod"].map((t) => (
+                    <span
+                      key={t}
+                      className="px-3 py-1.5 rounded-lg bg-blue-500/10 text-blue-300 text-xs border border-blue-500/20"
+                    >
+                      {t}
+                    </span>
+                  ))}
+                </div>
               </div>
             </div>
 
-            <div className="mt-auto border-t border-white/10 pt-6">
-              <div className="flex flex-wrap gap-2">
-                {["React", "Vector DB", "Gemini API"].map((t) => (
-                  <span
-                    key={t}
-                    className="px-3 py-1.5 rounded-lg bg-violet-500/10 text-violet-300 text-xs border border-violet-500/20"
-                  >
-                    {t}
+            {/* Visual Element */}
+            <Smartphone
+              className="absolute bottom-8 right-8 text-blue-500/10 w-64 h-64 rotate-[-15deg] group-hover:scale-110 transition-transform duration-700"
+              strokeWidth={0.5}
+            />
+          </ClayCard>
+        </div>
+
+        {/* Project 3: LearnX */}
+        <div className="relative group">
+          <div className="absolute inset-0 bg-violet-600/5 rounded-[3rem] blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          <ClayCard
+            className="min-h-[500px] relative overflow-hidden p-0 bg-[#0a0a12]"
+            glow="violet"
+          >
+            <div className="relative z-10 p-10 md:p-14 flex flex-col h-full">
+              <div className="mb-auto">
+                <div className="text-violet-400 font-mono text-xs tracking-widest uppercase mb-3">
+                  AI Tool
+                </div>
+                <h3 className="text-4xl font-bold text-white font-display mb-6">
+                  LearnX
+                </h3>
+                <p className="text-gray-400 text-lg leading-relaxed mb-8">
+                  Intelligent Document Analysis. Upload PDFs and chat with them
+                  using RAG (Retrieval Augmented Generation) for grounded
+                  answers.
+                </p>
+              </div>
+
+              <div className="p-6 rounded-2xl bg-white/5 border border-white/10 mb-10 backdrop-blur-sm">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
+                  <span className="text-xs text-gray-300 font-mono uppercase tracking-wider">
+                    Response Generation
                   </span>
-                ))}
+                </div>
+                <div className="h-2 w-full bg-gray-800 rounded-full overflow-hidden">
+                  <div className="h-full bg-violet-500 w-[80%] animate-[shimmer_2s_infinite]"></div>
+                </div>
+              </div>
+
+              <div className="mt-auto border-t border-white/10 pt-8">
+                <div className="flex flex-wrap gap-2">
+                  {["React", "Vector DB", "Gemini API"].map((t) => (
+                    <span
+                      key={t}
+                      className="px-3 py-1.5 rounded-lg bg-violet-500/10 text-violet-300 text-xs border border-violet-500/20"
+                    >
+                      {t}
+                    </span>
+                  ))}
+                </div>
               </div>
             </div>
-          </div>
 
-          <Cpu
-            className="absolute bottom-8 right-8 text-violet-500/10 w-48 h-48 rotate-[15deg]"
-            strokeWidth={0.5}
-          />
-        </ClayCard>
+            <Cpu
+              className="absolute bottom-8 right-8 text-violet-500/10 w-64 h-64 rotate-[15deg] group-hover:scale-110 transition-transform duration-700"
+              strokeWidth={0.5}
+            />
+          </ClayCard>
+        </div>
       </div>
 
       {/* --- SERVICES COMMAND CENTER (Redesigned) --- */}
