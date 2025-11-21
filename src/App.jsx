@@ -34,6 +34,8 @@ import {
   Wifi,
   Server,
   LayoutGrid,
+  Command,
+  MessageSquare,
 } from "lucide-react";
 
 // --- GLOBAL STYLES & FONTS ---
@@ -262,147 +264,298 @@ const DockNav = ({ activePage, setPage }) => {
 
 // --- SECTIONS ---
 
-// 1. HOME
+// 1. HOME - Expanded with "Philosophy", "Impact", "CTA"
 const HomePage = ({ setPage }) => (
-  <section className="min-h-screen flex flex-col justify-center pt-24 pb-32 px-4 md:px-6 relative overflow-hidden">
-    <div className="max-w-7xl mx-auto w-full grid lg:grid-cols-2 gap-10 lg:gap-24 items-center relative z-10">
-      {/* Left: Typography & CTA */}
-      <div className="space-y-8 z-10 order-2 lg:order-1">
-        {/* Status Badge - "Command Center" Style */}
-        <div className="flex items-center gap-4">
-          <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-green-900/20 border border-green-500/30 text-green-400 text-[10px] md:text-xs font-bold uppercase tracking-widest shadow-[0_0_15px_rgba(34,197,94,0.2)]">
-            <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
-            System Online
-          </div>
-          <div className="h-px w-12 bg-white/10"></div>
-          <span className="text-xs text-gray-500 font-mono tracking-widest">
-            V 2.5.0
-          </span>
-        </div>
-
-        <div className="space-y-4">
-          <h1 className="text-6xl sm:text-8xl lg:text-9xl font-bold tracking-tighter text-white leading-[0.9] animate-fade-in-up">
-            Manoj <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-violet-400 to-cyan-400 drop-shadow-[0_0_40px_rgba(124,58,237,0.4)]">
-              Chavan.
+  <section className="relative w-full overflow-hidden">
+    {/* HERO SECTION */}
+    <div className="min-h-screen flex flex-col justify-center px-4 md:px-6 relative z-10">
+      <div className="max-w-7xl mx-auto w-full grid lg:grid-cols-2 gap-10 lg:gap-24 items-center">
+        {/* Left: Typography & CTA */}
+        <div className="space-y-8 order-2 lg:order-1">
+          {/* Status Badge - "Command Center" Style */}
+          <div className="flex items-center gap-4">
+            <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-green-900/20 border border-green-500/30 text-green-400 text-[10px] md:text-xs font-bold uppercase tracking-widest shadow-[0_0_15px_rgba(34,197,94,0.2)]">
+              <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+              System Online
+            </div>
+            <div className="h-px w-12 bg-white/10"></div>
+            <span className="text-xs text-gray-500 font-mono tracking-widest">
+              V 2.5.0
             </span>
-          </h1>
-          <h2 className="text-xl md:text-2xl text-gray-400 font-light tracking-wide">
-            Full Stack Engineer &{" "}
-            <span className="text-white font-normal">Mobile Architect</span>
-          </h2>
-        </div>
-
-        <p className="text-lg text-gray-400 max-w-lg leading-relaxed border-l-2 border-white/10 pl-6">
-          Crafting digital experiences where{" "}
-          <span className="text-white font-semibold">Performance</span> meets{" "}
-          <span className="text-white font-semibold">Precision</span>.
-          Specializing in scalable MERN architectures and fluid Flutter
-          applications.
-        </p>
-
-        <div className="flex flex-wrap gap-4 pt-4">
-          <button
-            onClick={() => setPage("work")}
-            className="flex-1 sm:flex-none px-8 py-4 bg-white text-black rounded-2xl font-bold text-sm md:text-base shadow-[0_0_40px_-10px_rgba(255,255,255,0.5)] hover:scale-105 transition-transform flex justify-center items-center gap-3 group"
-          >
-            Explore Works
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-          </button>
-
-          <button
-            onClick={() => setPage("journey")}
-            className="flex-1 sm:flex-none px-8 py-4 bg-[#0a0a12] border border-white/10 rounded-2xl font-bold text-sm md:text-base text-white hover:bg-white/5 hover:border-white/20 transition-all flex justify-center items-center gap-3 backdrop-blur-xl"
-          >
-            <User className="w-4 h-4" />
-            About Me
-          </button>
-        </div>
-
-        {/* Tech Scroller - Mini */}
-        <div className="pt-8 flex items-center gap-4 opacity-60">
-          <div className="text-xs font-mono text-gray-500 uppercase tracking-widest">
-            Stack:
-          </div>
-          <div className="flex gap-4 text-gray-400">
-            <Code2 size={16} />
-            <Globe size={16} />
-            <Smartphone size={16} />
-            <Database size={16} />
-          </div>
-        </div>
-      </div>
-
-      {/* Right: Holographic Code Terminal (Replaces Abstract 3D) */}
-      <div className="relative order-1 lg:order-2 h-[400px] md:h-[500px] lg:h-[600px] w-full flex items-center justify-center">
-        <div className="absolute inset-0 bg-gradient-to-b from-blue-500/10 to-transparent rounded-full blur-[100px] pointer-events-none"></div>
-
-        {/* Floating Terminal Window */}
-        <div className="relative w-full max-w-md bg-[#05050a]/90 backdrop-blur-xl rounded-2xl border border-white/10 shadow-2xl overflow-hidden animate-float">
-          {/* Terminal Header */}
-          <div className="flex items-center justify-between px-4 py-3 bg-white/5 border-b border-white/5">
-            <div className="flex gap-2">
-              <div className="w-3 h-3 rounded-full bg-red-500/80"></div>
-              <div className="w-3 h-3 rounded-full bg-yellow-500/80"></div>
-              <div className="w-3 h-3 rounded-full bg-green-500/80"></div>
-            </div>
-            <div className="flex items-center gap-2 text-[10px] text-gray-500 font-mono">
-              <Terminal size={10} />
-              <span>manoj@dev:~/portfolio</span>
-            </div>
           </div>
 
-          {/* Terminal Body - Typing Effect */}
-          <div className="p-6 font-mono text-xs md:text-sm space-y-4">
-            <div className="flex gap-2">
-              <span className="text-green-400">➜</span>
-              <span className="text-blue-400">~</span>
-              <span className="text-gray-300">
-                npx init-profile --name="Manoj"
+          <div className="space-y-4">
+            <h1 className="text-6xl sm:text-8xl lg:text-9xl font-bold tracking-tighter text-white leading-[0.9] animate-fade-in-up">
+              Manoj <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-violet-400 to-cyan-400 drop-shadow-[0_0_40px_rgba(124,58,237,0.4)]">
+                Chavan.
               </span>
+            </h1>
+            <h2 className="text-xl md:text-2xl text-gray-400 font-light tracking-wide">
+              Full Stack Engineer &{" "}
+              <span className="text-white font-normal">Mobile Architect</span>
+            </h2>
+          </div>
+
+          <p className="text-lg text-gray-400 max-w-lg leading-relaxed border-l-2 border-white/10 pl-6">
+            Crafting digital experiences where{" "}
+            <span className="text-white font-semibold">Performance</span> meets{" "}
+            <span className="text-white font-semibold">Precision</span>.
+            Specializing in scalable MERN architectures and fluid Flutter
+            applications.
+          </p>
+
+          <div className="flex flex-wrap gap-4 pt-4">
+            <button
+              onClick={() => setPage("work")}
+              className="flex-1 sm:flex-none px-8 py-4 bg-white text-black rounded-2xl font-bold text-sm md:text-base shadow-[0_0_40px_-10px_rgba(255,255,255,0.5)] hover:scale-105 transition-transform flex justify-center items-center gap-3 group"
+            >
+              Explore Works
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </button>
+
+            <button
+              onClick={() => setPage("journey")}
+              className="flex-1 sm:flex-none px-8 py-4 bg-[#0a0a12] border border-white/10 rounded-2xl font-bold text-sm md:text-base text-white hover:bg-white/5 hover:border-white/20 transition-all flex justify-center items-center gap-3 backdrop-blur-xl"
+            >
+              <User className="w-4 h-4" />
+              About Me
+            </button>
+          </div>
+
+          {/* Tech Scroller - Mini */}
+          <div className="pt-8 flex items-center gap-4 opacity-60">
+            <div className="text-xs font-mono text-gray-500 uppercase tracking-widest">
+              Stack:
+            </div>
+            <div className="flex gap-4 text-gray-400">
+              <Code2 size={16} />
+              <Globe size={16} />
+              <Smartphone size={16} />
+              <Database size={16} />
+            </div>
+          </div>
+        </div>
+
+        {/* Right: Holographic Code Terminal */}
+        <div className="relative order-1 lg:order-2 h-[400px] md:h-[500px] lg:h-[600px] w-full flex items-center justify-center">
+          <div className="absolute inset-0 bg-gradient-to-b from-blue-500/10 to-transparent rounded-full blur-[100px] pointer-events-none"></div>
+
+          <div className="relative w-full max-w-md bg-[#05050a]/90 backdrop-blur-xl rounded-2xl border border-white/10 shadow-2xl overflow-hidden animate-float">
+            <div className="flex items-center justify-between px-4 py-3 bg-white/5 border-b border-white/5">
+              <div className="flex gap-2">
+                <div className="w-3 h-3 rounded-full bg-red-500/80"></div>
+                <div className="w-3 h-3 rounded-full bg-yellow-500/80"></div>
+                <div className="w-3 h-3 rounded-full bg-green-500/80"></div>
+              </div>
+              <div className="flex items-center gap-2 text-[10px] text-gray-500 font-mono">
+                <Terminal size={10} />
+                <span>manoj@dev:~/portfolio</span>
+              </div>
             </div>
 
-            <div className="space-y-2 pl-4 border-l border-white/10">
-              <div className="text-gray-400">Loading developer profile...</div>
-              <div className="text-green-400">✔ Core Loaded: MERN Stack</div>
-              <div className="text-green-400">
-                ✔ Mobile Module: Flutter & Dart
-              </div>
-              <div className="text-green-400">
-                ✔ AI Engine: Gemini API Integration
-              </div>
-              <div className="text-yellow-400 flex items-center gap-2">
-                <span className="animate-pulse">
-                  ⚠ Status: Ready for next challenge
+            <div className="p-6 font-mono text-xs md:text-sm space-y-4">
+              <div className="flex gap-2">
+                <span className="text-green-400">➜</span>
+                <span className="text-blue-400">~</span>
+                <span className="text-gray-300">
+                  npx init-profile --name="Manoj"
                 </span>
               </div>
-            </div>
 
-            <div className="flex gap-2 pt-4">
-              <span className="text-green-400">➜</span>
-              <span className="text-blue-400">~</span>
-              <span className="text-gray-300 animate-pulse">_</span>
+              <div className="space-y-2 pl-4 border-l border-white/10">
+                <div className="text-gray-400">
+                  Loading developer profile...
+                </div>
+                <div className="text-green-400">✔ Core Loaded: MERN Stack</div>
+                <div className="text-green-400">
+                  ✔ Mobile Module: Flutter & Dart
+                </div>
+                <div className="text-green-400">
+                  ✔ AI Engine: Gemini API Integration
+                </div>
+                <div className="text-yellow-400 flex items-center gap-2">
+                  <span className="animate-pulse">
+                    ⚠ Status: Ready for next challenge
+                  </span>
+                </div>
+              </div>
+
+              <div className="flex gap-2 pt-4">
+                <span className="text-green-400">➜</span>
+                <span className="text-blue-400">~</span>
+                <span className="text-gray-300 animate-pulse">_</span>
+              </div>
             </div>
           </div>
-
-          {/* Holographic Reflection */}
-          <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
-          <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-blue-500/10 to-transparent pointer-events-none"></div>
         </div>
       </div>
     </div>
 
-    {/* Infinite Marquee - Subtle Footer */}
-    <div className="absolute bottom-0 left-0 w-full border-t border-white/5 py-6 overflow-hidden opacity-30 pointer-events-none">
-      <div className="flex animate-marquee gap-24 whitespace-nowrap text-4xl font-display font-bold text-transparent bg-clip-text bg-gradient-to-b from-gray-700 to-transparent">
-        {[...Array(4)].map((_, i) => (
-          <React.Fragment key={i}>
-            <span>CREATIVE</span>
-            <span>ENGINEER</span>
-            <span>ARCHITECT</span>
-            <span>BUILDER</span>
-          </React.Fragment>
-        ))}
+    {/* --- 2. THE PHILOSOPHY SECTION (New) --- */}
+    <div className="py-32 px-6 border-t border-white/5">
+      <div className="max-w-7xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-16 items-center">
+          <div>
+            <h2 className="text-4xl md:text-6xl font-bold text-white mb-8 font-display leading-tight">
+              Design is not just what it looks like.
+              <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-violet-400">
+                Design is how it works.
+              </span>
+            </h2>
+            <p className="text-lg text-gray-400 leading-relaxed mb-8">
+              I believe that the best software is invisible. It anticipates
+              needs, performs instantly, and scales effortlessly. My engineering
+              philosophy is built on three non-negotiable pillars:
+            </p>
+
+            <div className="space-y-6">
+              {[
+                {
+                  title: "User-Centric",
+                  desc: "Every line of code must serve the end user's experience.",
+                },
+                {
+                  title: "Performance-First",
+                  desc: "Optimized render cycles and efficient state management.",
+                },
+                {
+                  title: "Scalable Architecture",
+                  desc: "Codebases designed to grow, not just to function.",
+                },
+              ].map((item, i) => (
+                <div key={i} className="flex gap-4 items-start">
+                  <div className="p-2 rounded-lg bg-white/5 text-blue-400 mt-1">
+                    <Zap size={20} />
+                  </div>
+                  <div>
+                    <h4 className="text-white font-bold text-lg">
+                      {item.title}
+                    </h4>
+                    <p className="text-gray-500 text-sm">{item.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Abstract Visual */}
+          <div className="relative h-[500px] bg-[#0a0a12] rounded-[3rem] border border-white/10 overflow-hidden flex items-center justify-center group">
+            <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10 mix-blend-overlay"></div>
+            <div className="absolute inset-0 bg-gradient-to-br from-blue-900/10 to-violet-900/10 group-hover:opacity-50 transition-opacity duration-700"></div>
+
+            <div className="relative z-10 grid grid-cols-2 gap-4 p-8 transform group-hover:scale-105 transition-transform duration-700">
+              <div className="p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md h-40 w-40 flex flex-col justify-between">
+                <Cpu className="text-blue-400" size={32} />
+                <span className="text-xs text-gray-400 font-mono uppercase">
+                  Logic
+                </span>
+              </div>
+              <div className="p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md h-40 w-40 flex flex-col justify-between translate-y-8">
+                <Heart className="text-red-400" size={32} />
+                <span className="text-xs text-gray-400 font-mono uppercase">
+                  Empathy
+                </span>
+              </div>
+              <div className="p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md h-40 w-40 flex flex-col justify-between -translate-y-8">
+                <Zap className="text-yellow-400" size={32} />
+                <span className="text-xs text-gray-400 font-mono uppercase">
+                  Speed
+                </span>
+              </div>
+              <div className="p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md h-40 w-40 flex flex-col justify-between">
+                <Layers className="text-violet-400" size={32} />
+                <span className="text-xs text-gray-400 font-mono uppercase">
+                  Structure
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {/* --- 3. SELECTED IMPACT PREVIEW (New) --- */}
+    <div className="py-32 px-6 bg-[#05050a]">
+      <div className="max-w-7xl mx-auto">
+        <div className="flex justify-between items-end mb-12">
+          <h2 className="text-3xl md:text-5xl font-bold text-white font-display">
+            Selected <span className="text-blue-500">Impact</span>
+          </h2>
+          <button
+            onClick={() => setPage("work")}
+            className="text-sm text-gray-400 hover:text-white flex items-center gap-2"
+          >
+            View All Work <ArrowRight size={16} />
+          </button>
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-8">
+          <div className="group cursor-pointer" onClick={() => setPage("work")}>
+            <div className="h-[400px] bg-[#0a0a12] rounded-[2rem] border border-white/10 overflow-hidden relative">
+              <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10 mix-blend-overlay"></div>
+              <div className="absolute bottom-0 left-0 w-full p-8 bg-gradient-to-t from-black via-black/50 to-transparent">
+                <div className="text-orange-400 font-mono text-xs tracking-widest uppercase mb-2">
+                  EdTech
+                </div>
+                <h3 className="text-3xl font-bold text-white mb-2">
+                  Play_Bucket
+                </h3>
+                <p className="text-gray-400 text-sm">
+                  A massive learning ecosystem with AI-powered tutoring.
+                </p>
+              </div>
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-orange-500/20 rounded-full blur-[50px] group-hover:bg-orange-500/40 transition-colors"></div>
+            </div>
+          </div>
+
+          <div className="group cursor-pointer" onClick={() => setPage("work")}>
+            <div className="h-[400px] bg-[#0a0a12] rounded-[2rem] border border-white/10 overflow-hidden relative">
+              <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10 mix-blend-overlay"></div>
+              <div className="absolute bottom-0 left-0 w-full p-8 bg-gradient-to-t from-black via-black/50 to-transparent">
+                <div className="text-blue-400 font-mono text-xs tracking-widest uppercase mb-2">
+                  Mobile
+                </div>
+                <h3 className="text-3xl font-bold text-white mb-2">
+                  Digital Garage
+                </h3>
+                <p className="text-gray-400 text-sm">
+                  Offline-first vehicle management architecture.
+                </p>
+              </div>
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-blue-500/20 rounded-full blur-[50px] group-hover:bg-blue-500/40 transition-colors"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {/* --- 4. MASSIVE CALL TO ACTION (New) --- */}
+    <div className="py-40 px-6 text-center relative overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-blue-900/10 to-transparent pointer-events-none"></div>
+
+      <div className="relative z-10 max-w-4xl mx-auto">
+        <div className="inline-block p-4 rounded-full bg-blue-500/10 text-blue-400 mb-8 animate-bounce">
+          <MessageSquare size={32} />
+        </div>
+        <h2 className="text-5xl md:text-8xl font-bold text-white font-display mb-8 tracking-tight">
+          Let's Build the <br />
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-violet-400 to-cyan-400">
+            Impossible.
+          </span>
+        </h2>
+        <p className="text-xl text-gray-400 mb-12 max-w-2xl mx-auto">
+          I'm currently available for freelance projects and open to full-time
+          opportunities. If you have a vision, let's make it reality.
+        </p>
+
+        <a
+          href="mailto:manojschavan6@gmail.com"
+          className="inline-flex items-center gap-3 px-10 py-5 bg-white text-black rounded-full font-bold text-lg hover:scale-105 transition-transform shadow-[0_0_50px_-10px_rgba(255,255,255,0.5)]"
+        >
+          Start a Conversation <ArrowRight size={20} />
+        </a>
       </div>
     </div>
   </section>
